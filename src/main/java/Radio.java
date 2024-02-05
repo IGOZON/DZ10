@@ -1,8 +1,8 @@
 public class Radio {
 
 
-    public int currentRadio;
-    public int currentVolume;
+    private int currentRadio;
+    private int currentVolume;
 
 
     public int getCurrentRadio() {
