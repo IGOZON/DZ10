@@ -15,7 +15,7 @@ public class Radio {
 
     }
     public Radio(int quantityRadio) {
-        maxRadio = quantityRadio + minRadio;
+        maxRadio = quantityRadio - 1;
 
     }
 
