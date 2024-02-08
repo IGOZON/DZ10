@@ -1,8 +1,25 @@
 public class Radio {
 
+    private int maxRadio = 9;
+    private int minRadio = 0;
+    private int currentRadio = minRadio;
+    public Radio(){
+        this.minRadio = minRadio;
+        this.maxRadio = maxRadio;
 
-    private int currentRadio;
-    private int currentVolume;
+    }
+
+    private int maxVolume = 100;
+    private int minVolume = 0;
+    private int currentVolume = minVolume;
+
+
+
+    public Radio(int minRadio, int maxRadio) {
+        this.minRadio = minRadio;
+        this.maxRadio = maxRadio;
+    }
+
 
 
     public int getCurrentRadio() {
@@ -14,20 +31,20 @@ public class Radio {
     }
 
     public void setCurrentRadio(int newCurrentRadio) {
-        if (newCurrentRadio > 9) {
-            return;
+        if (newCurrentRadio > maxRadio) {
+            newCurrentRadio = maxRadio;
         }
-        if (newCurrentRadio < 0) {
-            return;
+        if (newCurrentRadio < minRadio) {
+            newCurrentRadio = minRadio;
         }
         currentRadio = newCurrentRadio;
     }
 
     public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume > 100) {
+        if (newCurrentVolume > maxVolume) {
             return;
         }
-        if (newCurrentVolume < 0) {
+        if (newCurrentVolume < minVolume) {
             return;
         }
         currentVolume = newCurrentVolume;
@@ -35,29 +52,29 @@ public class Radio {
 
 
     public void next() {
-        if (currentRadio != 9) {
+        if (currentRadio != maxRadio) {
             currentRadio = currentRadio + 1;
         } else {
-            currentRadio = 0;
+            currentRadio = minRadio;
         }
     }
 
     public void prev() {
-        if (currentRadio != 0) {
+        if (currentRadio != minRadio) {
             currentRadio = currentRadio - 1;
         } else {
-            currentRadio = 9;
+            currentRadio = maxRadio;
         }
     }
 
     public void IncreaseVolime() {
-        if (currentVolume != 100) {
+        if (currentVolume != maxVolume) {
             currentVolume = currentVolume + 1;
         }
     }
 
     public void downVolime() {
-        if (currentVolume != 0) {
+        if (currentVolume != minVolume) {
             currentVolume = currentVolume - 1;
         }
     }
