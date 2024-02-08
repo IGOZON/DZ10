@@ -2,11 +2,25 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RadioTest {
+    Radio rad = new Radio();
+
 
     @Test
-    public void setRadioTest() { //выбор станции больше 9
-        Radio rad = new Radio();
-        rad.setCurrentRadio(10);
+    public void setMaxRadioTest() { //выбор станции больше 9
+
+
+        rad.setCurrentRadio(11);
+
+        int expected = 9;
+        int actual = rad.getCurrentRadio();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void setMinRadioTest() { //выбор меньше 0
+
+        rad.setCurrentRadio(-1);
 
         int expected = 0;
         int actual = rad.getCurrentRadio();
@@ -16,7 +30,6 @@ public class RadioTest {
 
     @Test
     public void MoreRadioTest() {  //следующая после 9
-        Radio rad = new Radio();
 
         rad.setCurrentRadio(9);
         rad.next();
@@ -30,7 +43,7 @@ public class RadioTest {
 
     @Test
     public void lessRadioTest() {  //предыдущая после 0
-        Radio rad = new Radio();
+
 
         rad.setCurrentRadio(-1);
         rad.prev();
@@ -44,7 +57,6 @@ public class RadioTest {
 
     @Test
     public void nextRadioTest() {  //следующая станция
-        Radio rad = new Radio();
 
         rad.setCurrentRadio(2);
         rad.next();
@@ -58,7 +70,6 @@ public class RadioTest {
 
     @Test
     public void prevRadioTest() {  //предыдущая станция
-        Radio rad = new Radio();
 
         rad.setCurrentRadio(5);
         rad.prev();
@@ -71,8 +82,31 @@ public class RadioTest {
     }
 
     @Test
+    public void chooseMaxRadioTest() { //выбор минимальной и максимальной стации
+        Radio rad = new Radio(0, 15);
+
+        rad.setCurrentRadio(20);
+
+        int expected = 15;
+        int actual = rad.getCurrentRadio();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void chooseMinRadioTest() { //выбор минимальной и максимальной стации
+        Radio rad = new Radio(0, 20);
+
+        rad.setCurrentRadio(-1);
+
+        int expected = 0;
+        int actual = rad.getCurrentRadio();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void increaseVolimeTest() {  //повышение громкости
-        Radio rad = new Radio();
 
         rad.setCurrentVolume(99);
         rad.IncreaseVolime();
@@ -86,7 +120,6 @@ public class RadioTest {
 
     @Test
     public void downVolimeTest() {  //понижение громкости
-        Radio rad = new Radio();
 
         rad.setCurrentVolume(1);
         rad.downVolime();
@@ -100,7 +133,6 @@ public class RadioTest {
 
     @Test
     public void increaseMaxVolimeTest() {  //повышение громкости выше 100
-        Radio rad = new Radio();
 
         rad.setCurrentVolume(100);
         rad.IncreaseVolime();
@@ -114,7 +146,6 @@ public class RadioTest {
 
     @Test
     public void downMinVolimeTest() {  //понижение громкости ниже 0
-        Radio rad = new Radio();
 
         rad.setCurrentVolume(0);
         rad.downVolime();
@@ -128,7 +159,7 @@ public class RadioTest {
 
     @Test
     public void setVolumeMaxTest() { //выбор громкости больше 100
-        Radio rad = new Radio();
+
         rad.setCurrentVolume(101);
 
         int expected = 0;
@@ -139,7 +170,7 @@ public class RadioTest {
 
     @Test
     public void setVolumeMinTest() { //выбор громкости меньше 0
-        Radio rad = new Radio();
+
         rad.setCurrentVolume(-1);
 
         int expected = 0;
@@ -147,9 +178,6 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
-
-
-
 
 
 }
