@@ -14,9 +14,9 @@ public class Radio {
         this.maxRadio = maxRadio;
 
     }
-    public Radio(int minRadio, int maxRadio) {
-        this.minRadio = minRadio;
-        this.maxRadio = maxRadio;
+    public Radio(int quantityRadio) {
+        maxRadio = quantityRadio + minRadio;
+
     }
 
 

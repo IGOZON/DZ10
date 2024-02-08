@@ -83,7 +83,7 @@ public class RadioTest {
 
     @Test
     public void chooseMaxRadioTest() { //выбор минимальной и максимальной стации
-        Radio rad = new Radio(0, 15);
+        Radio rad = new Radio(15);
 
         rad.setCurrentRadio(20);
 
@@ -95,7 +95,7 @@ public class RadioTest {
 
     @Test
     public void chooseMinRadioTest() { //выбор минимальной и максимальной стации
-        Radio rad = new Radio(0, 20);
+        Radio rad = new Radio(20);
 
         rad.setCurrentRadio(-1);
 
